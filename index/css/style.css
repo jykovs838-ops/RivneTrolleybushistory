@@ -31,7 +31,7 @@ nav ul li a {
     text-decoration: none; 
     margin-left: 20px; 
     font-size: 0.9rem;
-    transition: 0.3s;
+    transition: color 0.3s ease;
 }
 nav ul li a:hover, .active { color: #ffcc00; }
 
@@ -54,6 +54,12 @@ nav ul li a:hover, .active { color: #ffcc00; }
     text-decoration: none;
     border-radius: 5px;
     font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background: #ffdd33;
+    transform: scale(1.05);
 }
 
 /* Картки у галереї */
@@ -81,6 +87,7 @@ nav ul li a:hover, .active { color: #ffcc00; }
     font-size: 0.8rem; 
     font-weight: bold; 
     border-radius: 4px;
+    transition: all 0.3s ease;
 }
 .status.red { background: rgba(255, 0, 0, 0.1); color: #ff4444; border: 1px solid #600; }
 
@@ -98,9 +105,32 @@ nav ul li a:hover, .active { color: #ffcc00; }
 .history { margin: 15px 0; font-size: 0.9rem; color: #bbb; }
 .author { text-align: right; font-size: 0.7rem; color: #444; margin-top: auto; }
 
-/* Адаптивність (Баг-фікс для мобілок) */
+/* Плавні переходи для посилань */
+a {
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    opacity: 0.8;
+}
+
+/* Адаптивність для мобільних пристроїв */
 @media (max-width: 850px) {
-    .vehicle-card { flex-direction: column; }
-    .vehicle-image { max-width: 100%; height: 250px; }
+    .vehicle-card { 
+        flex-direction: column;
+    }
+    
+    .vehicle-image { 
+        max-width: 100%; 
+        height: 250px; 
+        order: -1;
+    }
+    
+    .vehicle-info { 
+        order: 1;
+    }
+    
     .stats { grid-template-columns: 1fr; }
+    
+    nav ul li a { margin-left: 10px; font-size: 0.8rem; }
 }
